@@ -4,309 +4,250 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Emircan Karaman · Frontend Geliştirici</title>
-<meta name="description" content="Emircan Karaman — küçük işletmeler için hızlı, mobil uyumlu ve özgün web siteleri geliştiren frontend geliştirici. İstanbul.">
+<meta name="description" content="Emircan Karaman — işletmeler için hızlı, mobil uyumlu ve özgün web siteleri geliştiren frontend geliştirici. İstanbul.">
 <meta property="og:title" content="Emircan Karaman · Frontend Geliştirici">
 <meta property="og:description" content="İşletmeler için hızlı, mobil uyumlu ve özgün web siteleri.">
 <meta property="og:image" content="gorseller/usta-makas.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--zemin:#f7f6f3;--yuzey:#ffffff;--yazi:#16161a;--ikincil:#5f5e66;--soluk:#8b8a91;--cizgi:#e3e1dc;--vurgu:#2f4bd8;--vurgu-acik:#eef1fd;--kod:#16161a;--akis:cubic-bezier(.22,1,.36,1)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--zemin:#0f0f11;--yuzey:#17171a;--yazi:#eeedf0;--ikincil:#a5a4ab;--soluk:#75747b;--cizgi:#26262a;--vurgu:#8ea2ff;--vurgu-acik:#1b1f33;--kod:#17171a}}
-:root[data-theme="dark"]{--zemin:#0f0f11;--yuzey:#17171a;--yazi:#eeedf0;--ikincil:#a5a4ab;--soluk:#75747b;--cizgi:#26262a;--vurgu:#8ea2ff;--vurgu-acik:#1b1f33;--kod:#17171a}
+:root{--zemin:#0b0f19;--panel:#111727;--yazi:#aab4c8;--baslik:#eef2f9;--soluk:#6b7690;--cizgi:#1e2638;--vurgu:#f5b971;--vurgu-zemin:rgba(245,185,113,.1);--isik:rgba(120,140,220,.08);--akis:cubic-bezier(.22,1,.36,1)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--zemin:#f6f4ef;--panel:#ffffff;--yazi:#4d5566;--baslik:#141824;--soluk:#8a90a0;--cizgi:#e4e1d9;--vurgu:#b5651d;--vurgu-zemin:rgba(181,101,29,.09);--isik:rgba(181,101,29,.06)}}
+:root[data-theme="light"]{--zemin:#f6f4ef;--panel:#ffffff;--yazi:#4d5566;--baslik:#141824;--soluk:#8a90a0;--cizgi:#e4e1d9;--vurgu:#b5651d;--vurgu-zemin:rgba(181,101,29,.09);--isik:rgba(181,101,29,.06)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
 html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}
-body{background:var(--zemin);color:var(--yazi);font:400 16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--zemin);color:var(--yazi);font:400 16px/1.7 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
-::selection{background:var(--vurgu);color:#fff}
-.kap{width:min(1120px,100% - 32px);margin-inline:auto}
-.serif{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:0}
-.etiket{font-size:13px;font-weight:500;color:var(--soluk);display:flex;align-items:center;gap:10px}
-.etiket b{font-weight:500;color:var(--vurgu);font-variant-numeric:tabular-nums}
-h1,h2,h3{font-weight:600;letter-spacing:-.025em;line-height:1.1}
+::selection{background:var(--vurgu);color:var(--zemin)}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+b,strong{color:var(--baslik);font-weight:600}
+.isik{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(600px circle at var(--x,50%) var(--y,30%),var(--isik),transparent 70%)}
 
-/* üst menü */
-header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--zemin) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
-header.dolu{border-color:var(--cizgi)}
-.ust{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-.marka{font-weight:600;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
-.marka i{width:28px;height:28px;border-radius:8px;background:var(--yazi);color:var(--zemin);display:grid;place-items:center;font:italic 18px "Instrument Serif"}
-nav{display:flex;align-items:center;gap:28px;font-size:14.5px}
-nav a{color:var(--ikincil);transition:color .2s}
-nav a:hover{color:var(--yazi)}
-.tema{width:34px;height:34px;border-radius:8px;border:1px solid var(--cizgi);background:none;color:var(--ikincil);cursor:pointer;display:grid;place-items:center}
-.tema:hover{color:var(--yazi)}
-.tema svg{width:16px;height:16px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:500;font-size:15px;border:1px solid var(--cizgi);background:var(--yuzey);transition:border-color .2s,transform .3s var(--akis)}
-.btn:hover{border-color:var(--yazi)}
-.btn-ana{background:var(--yazi);color:var(--zemin);border-color:var(--yazi)}
-.btn-ana:hover{background:var(--vurgu);border-color:var(--vurgu);color:#fff}
-.btn svg{width:16px;height:16px}
-nav .btn{padding:8px 14px;font-size:14px;color:var(--zemin)}
-nav .btn:hover{color:#fff}
+.duzen{position:relative;z-index:1;width:min(1200px,100% - 32px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px}
 
-/* hero */
-.hero{padding:clamp(64px,10vw,128px) 0 clamp(56px,8vw,96px)}
-.hero-ic{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end}
-.durum{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ikincil);border:1px solid var(--cizgi);background:var(--yuzey);padding:6px 12px 6px 10px;border-radius:99px;margin-bottom:28px}
-.durum i{width:7px;height:7px;border-radius:50%;background:#22a55a;box-shadow:0 0 0 3px color-mix(in srgb,#22a55a 22%,transparent)}
-.hero h1{font-size:clamp(40px,6.4vw,76px);font-weight:600;letter-spacing:-.04em;line-height:1.02;max-width:860px}
-.hero h1 .serif{font-size:1.08em;color:var(--vurgu)}
-.hero p{font-size:clamp(17px,1.5vw,19px);color:var(--ikincil);max-width:580px;margin-top:24px}
-.hero-btn{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
-.profil{width:168px;text-align:left}
-.profil img{width:168px;height:168px;object-fit:cover;border-radius:16px;border:1px solid var(--cizgi)}
-.profil b{display:block;font-weight:600;margin-top:12px}
-.profil span{font-size:13.5px;color:var(--soluk)}
+/* sol panel */
+.sol{position:sticky;top:0;height:100vh;padding:80px 0 56px;display:flex;flex-direction:column;justify-content:space-between}
+.kimlik{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.kimlik img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid var(--cizgi)}
+.durum{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--yazi);border:1px solid var(--cizgi);border-radius:99px;padding:4px 11px 4px 9px}
+.durum i{width:7px;height:7px;border-radius:50%;background:#3ccf7f;box-shadow:0 0 0 3px rgba(60,207,127,.18)}
+.sol h1{font-size:clamp(38px,4.2vw,52px);font-weight:800;color:var(--baslik);letter-spacing:-.035em;line-height:1.05}
+.sol h2{font-size:19px;font-weight:600;color:var(--baslik);margin-top:12px;letter-spacing:-.01em}
+.sol p.ozet{margin-top:16px;max-width:340px}
+.menu{margin-top:56px;display:flex;flex-direction:column;gap:2px;list-style:none}
+.menu a{display:inline-flex;align-items:center;gap:14px;padding:9px 0;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soluk);transition:color .25s}
+.menu a::before{content:"";width:32px;height:1px;background:currentColor;transition:width .35s var(--akis)}
+.menu a:hover,.menu a.aktif{color:var(--baslik)}
+.menu a:hover::before,.menu a.aktif::before{width:64px}
+.sol-alt{display:flex;align-items:center;gap:18px}
+.sol-alt a,.sol-alt button{color:var(--soluk);transition:color .2s,transform .3s var(--akis);background:none;border:0;cursor:pointer;display:grid;place-items:center}
+.sol-alt a:hover,.sol-alt button:hover{color:var(--baslik);transform:translateY(-2px)}
+.sol-alt svg{width:21px;height:21px}
+.saat{margin-left:auto;font-size:12.5px;color:var(--soluk)}
 
-/* bilgi şeridi */
-.bilgi{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--cizgi)}
-.bilgi div{padding:20px 22px;border-right:1px solid var(--cizgi)}
-.bilgi div:last-child{border-right:0}
-.bilgi small{display:block;font-size:12.5px;color:var(--soluk);margin-bottom:4px}
-.bilgi strong{font-weight:500;font-size:15px}
+/* sağ içerik */
+.sag{padding:80px 0 96px}
+.bolum{margin-bottom:112px;scroll-margin-top:60px}
+.bolum-bas{display:none}
+.bolum>p{margin-bottom:16px}
+.bolum>p a{color:var(--baslik);font-weight:600;border-bottom:1px solid var(--vurgu)}
+.bolum>p a:hover{color:var(--vurgu)}
 
-section{padding:clamp(72px,9vw,112px) 0}
-.bas{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:end;margin-bottom:44px}
-.bas h2{font-size:clamp(30px,3.8vw,46px);margin-top:12px}
-.bas h2 .serif{font-size:1.08em}
-.bas p{color:var(--ikincil);max-width:480px;justify-self:end}
+/* öne çıkan proje */
+.kart{position:relative;display:grid;grid-template-columns:150px 1fr;gap:22px;padding:20px;margin:0 -20px;border-radius:12px;transition:background .3s,box-shadow .3s}
+.kart:hover{background:var(--panel);box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 30px -14px rgba(0,0,0,.35)}
+.liste:hover .kart:not(:hover){opacity:.55}
+.kart{transition:opacity .3s,background .3s,box-shadow .3s}
+.kart .gorsel{border-radius:8px;overflow:hidden;border:1px solid var(--cizgi);aspect-ratio:16/10;align-self:start;margin-top:4px}
+.kart .gorsel img{width:100%;height:100%;object-fit:cover;object-position:top}
+.kart .ust-yazi{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk);margin-bottom:2px}
+.kart h3{font-size:17px;font-weight:700;color:var(--baslik);letter-spacing:-.01em;display:flex;align-items:center;gap:6px;transition:color .2s}
+.kart h3 svg{width:15px;height:15px;transition:transform .3s var(--akis)}
+.kart:hover h3{color:var(--vurgu)}
+.kart:hover h3 svg{transform:translate(3px,-3px)}
+.kart p{font-size:14.5px;margin-top:6px}
+.etiketler{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;list-style:none}
+.etiketler li{font-size:12px;font-weight:600;color:var(--vurgu);background:var(--vurgu-zemin);padding:3px 11px;border-radius:99px}
+.kart.ana{grid-template-columns:1fr}
+.kart.ana .gorsel{aspect-ratio:16/8;margin:0 0 6px}
+.kart.ana .mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px}
+.kart.ana .mini div{border-radius:6px;overflow:hidden;border:1px solid var(--cizgi);aspect-ratio:16/10}
+.kart.ana .mini img{width:100%;height:100%;object-fit:cover;object-position:top}
+.tum-link{display:inline-flex;align-items:center;gap:8px;margin-top:26px;font-weight:700;color:var(--baslik);font-size:15px}
+.tum-link svg{width:16px;height:16px;transition:transform .3s var(--akis)}
+.tum-link:hover{color:var(--vurgu)}.tum-link:hover svg{transform:translateX(4px)}
 
-/* işler */
-.isler{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 24px}
-.is{display:block}
-.is-gorsel{border-radius:14px;overflow:hidden;border:1px solid var(--cizgi);aspect-ratio:16/11;background:var(--yuzey)}
-.is-gorsel img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .9s var(--akis)}
-.is:hover .is-gorsel img{transform:scale(1.03)}
-.is-bilgi{display:flex;justify-content:space-between;align-items:center;padding:14px 2px 0;gap:12px}
-.is-bilgi h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
-.is-bilgi span{font-size:14px;color:var(--soluk)}
-.is-bilgi svg{width:16px;height:16px;color:var(--soluk);transition:transform .4s var(--akis),color .2s}
-.is:hover .is-bilgi svg{transform:translate(2px,-2px);color:var(--vurgu)}
-.isler .kucuk{grid-column:span 1}
-.alt-isler{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
-.alt-isler .is-gorsel{aspect-ratio:4/3}
-.isler-not{margin-top:28px;font-size:14px;color:var(--soluk)}
-.isler-not a{color:var(--yazi);text-decoration:underline;text-decoration-color:var(--cizgi);text-underline-offset:3px}
+/* kod */
+.kod{margin-top:26px;border:1px solid var(--cizgi);border-radius:12px;background:#0a0d16;color:#c8d0e0;font:400 13px/1.75 "JetBrains Mono",monospace;overflow:hidden}
+.kod-ust{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #1b2234;color:#6b7690;font-size:12px}
+.kod pre{padding:16px;white-space:pre-wrap;min-height:248px}
+.kod .s{color:#9cb4ff}.kod .d{color:#f5b971}.kod .k{color:#55607a}
+.imlec{display:inline-block;width:.55em;height:1.1em;background:#f5b971;vertical-align:-.2em;animation:yan 1s steps(1) infinite}
+@keyframes yan{50%{opacity:0}}
+.kod-alt{border-top:1px solid #1b2234;padding:9px 16px;color:#6b7690;font-size:12px}
+.kod-alt b{color:#7fe0a8;font-weight:400}
 
-/* yöntem */
-.yontem{display:grid;grid-template-columns:1.05fr 1fr;border:1px solid var(--cizgi);border-radius:16px;overflow:hidden;background:var(--yuzey)}
-.kod{background:var(--kod);color:#e6e5ea;font:400 13.5px/1.75 "JetBrains Mono",monospace;display:flex;flex-direction:column;min-height:440px}
-.kod-ust{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #2a2a2f;color:#8b8a91;font-size:12px}
-.kod-ust i{width:10px;height:10px;border-radius:50%;background:#3a3a40}
-.kod-ust span{margin-left:8px}
-.kod pre{padding:20px 18px;white-space:pre-wrap;flex:1}
-.kod .k{color:#75747b}.kod .s{color:#9fb2ff}.kod .d{color:#e9c08f}
-.imlec{display:inline-block;width:.55em;height:1.1em;background:#9fb2ff;vertical-align:-.2em;animation:yanip 1s steps(1) infinite}
-@keyframes yanip{50%{opacity:0}}
-.kod-alt{border-top:1px solid #2a2a2f;padding:11px 16px;color:#8b8a91;font-size:12px}
-.kod-alt b{color:#7ad69c;font-weight:400}
-.ozellikler{display:flex;flex-direction:column}
-.ozellik{padding:22px 26px;border-bottom:1px solid var(--cizgi);display:grid;grid-template-columns:36px 1fr;gap:2px 14px}
-.ozellik:last-child{border-bottom:0}
-.ozellik .ik{width:32px;height:32px;border-radius:8px;background:var(--vurgu-acik);color:var(--vurgu);display:grid;place-items:center;grid-row:span 2}
-.ozellik .ik svg{width:16px;height:16px}
-.ozellik h3{font-size:16px;font-weight:600;letter-spacing:-.01em}
-.ozellik p{font-size:14.5px;color:var(--ikincil)}
+/* hizmetler */
+.hizmetler{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--cizgi);border:1px solid var(--cizgi);border-radius:12px;overflow:hidden;margin-top:26px}
+.hizmet{background:var(--zemin);padding:20px 20px 22px;transition:background .3s}
+.hizmet:hover{background:var(--panel)}
+.hizmet svg{width:20px;height:20px;color:var(--vurgu);margin-bottom:12px}
+.hizmet h3{font-size:15.5px;font-weight:700;color:var(--baslik)}
+.hizmet p{font-size:14px;margin-top:4px}
 
 /* süreç */
-.surec{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--cizgi)}
-.adim{padding:26px 24px 0 0}
-.adim+.adim{padding-left:24px;border-left:1px solid var(--cizgi)}
-.adim .no{font-size:13px;color:var(--vurgu);font-weight:500;font-variant-numeric:tabular-nums}
-.adim h3{font-size:19px;margin:14px 0 8px}
-.adim p{color:var(--ikincil);font-size:15px}
-.adim small{display:block;margin-top:14px;font-size:13px;color:var(--soluk)}
-
-/* hakkımda */
-.hakkimda{display:grid;grid-template-columns:.9fr 1.3fr;gap:clamp(32px,6vw,80px);align-items:center}
-.hakkimda .foto{border-radius:16px;overflow:hidden;border:1px solid var(--cizgi);aspect-ratio:4/5}
-.hakkimda .foto img{width:100%;height:100%;object-fit:cover}
-.hakkimda h2{font-size:clamp(30px,3.8vw,46px);margin:12px 0 22px}
-.hakkimda h2 .serif{font-size:1.08em}
-.hakkimda p{color:var(--ikincil);margin-bottom:14px;max-width:600px}
-.hakkimda p.giris{color:var(--yazi);font-size:19px}
-.teknik{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
-.teknik span{font-size:13.5px;padding:6px 12px;border:1px solid var(--cizgi);border-radius:8px;background:var(--yuzey)}
-.baglantilar{display:flex;gap:10px;flex-wrap:wrap}
+.surec{list-style:none;margin-top:26px;border-left:1px solid var(--cizgi);margin-left:6px}
+.surec li{position:relative;padding:0 0 28px 28px}
+.surec li:last-child{padding-bottom:0}
+.surec li::before{content:"";position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--zemin);border:2px solid var(--vurgu)}
+.surec .zaman{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--soluk)}
+.surec h3{font-size:16px;font-weight:700;color:var(--baslik);margin:2px 0 4px}
+.surec p{font-size:14.5px}
 
 /* iletişim */
-.iletisim{border:1px solid var(--cizgi);border-radius:20px;background:var(--yuzey);padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
-.iletisim h2{font-size:clamp(34px,4.6vw,58px);letter-spacing:-.035em;margin-top:12px}
-.iletisim h2 .serif{color:var(--vurgu);font-size:1.08em}
-.iletisim p{color:var(--ikincil);margin-top:16px;max-width:460px}
-.kanallar a{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--cizgi);gap:12px}
-.kanallar a:first-child{border-top:1px solid var(--cizgi)}
-.kanallar small{color:var(--soluk);font-size:13px}
-.kanallar strong{font-weight:500;font-size:15px;display:flex;align-items:center;gap:8px}
-.kanallar svg{width:15px;height:15px;color:var(--soluk);transition:transform .3s var(--akis),color .2s}
-.kanallar a:hover svg{transform:translate(2px,-2px);color:var(--vurgu)}
-footer{padding:36px 0 44px;color:var(--soluk);font-size:13.5px}
-footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.iletisim-kutu{border:1px solid var(--cizgi);border-radius:14px;padding:28px;background:var(--panel)}
+.iletisim-kutu h3{font-size:24px;font-weight:800;color:var(--baslik);letter-spacing:-.02em}
+.iletisim-kutu p{margin:8px 0 22px}
+.btnlar{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-weight:700;font-size:14.5px;border:1px solid var(--cizgi);color:var(--baslik);transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--vurgu);color:var(--vurgu)}
+.btn-ana{background:var(--vurgu);border-color:var(--vurgu);color:var(--zemin)}
+.btn-ana:hover{background:transparent;color:var(--vurgu)}
+.btn svg{width:16px;height:16px}
+.son{font-size:13.5px;color:var(--soluk);max-width:440px}
+.son a{color:var(--yazi);font-weight:600}
+.son a:hover{color:var(--vurgu)}
 
-/* görünme */
-.js .gor{opacity:0;transform:translateY(18px)}
-.js .gor.gorundu{opacity:1;transform:none;transition:opacity .9s var(--akis),transform 1s var(--akis)}
+.js .gor{opacity:0;transform:translateY(14px)}
+.js .gor.gorundu{opacity:1;transform:none;transition:opacity .8s var(--akis),transform .9s var(--akis)}
 
-@media (max-width:900px){
-  nav a:not(.btn){display:none}
-  .hero-ic{grid-template-columns:1fr}.profil{order:-1;display:flex;align-items:center;gap:14px;width:auto}.profil img{width:64px;height:64px;border-radius:12px}.profil b{margin:0}
-  .bilgi{grid-template-columns:1fr 1fr}.bilgi div:nth-child(2){border-right:0}.bilgi div:nth-child(-n+2){border-bottom:1px solid var(--cizgi)}
-  .bas{grid-template-columns:1fr}.bas p{justify-self:start}
-  .yontem,.hakkimda,.iletisim{grid-template-columns:1fr}
-  .kod{min-height:400px}
-  .surec{grid-template-columns:1fr 1fr;row-gap:30px}.adim:nth-child(3){padding-left:0;border-left:0}
-  .alt-isler{grid-template-columns:1fr 1fr}
-  .hakkimda .foto{max-width:420px;aspect-ratio:1}
+@media (max-width:1000px){
+  .duzen{grid-template-columns:1fr;gap:0}
+  .sol{position:relative;height:auto;padding:56px 0 24px}
+  .menu{display:none}
+  .sol-alt{margin-top:30px}
+  .sag{padding-top:40px}
+  .bolum{margin-bottom:84px}
+  .bolum-bas{display:block;position:sticky;top:0;z-index:5;margin:0 -16px 22px;padding:14px 16px;background:color-mix(in srgb,var(--zemin) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--baslik)}
+  .liste:hover .kart:not(:hover){opacity:1}
+  .kart{margin:0;padding:0 0 26px;grid-template-columns:1fr}
+  .kart:hover{background:none;box-shadow:none}
+  .kart .gorsel{max-width:340px;order:2}
 }
-@media (max-width:560px){
-  .isler,.alt-isler,.surec{grid-template-columns:1fr}
-  .adim,.adim+.adim{padding:22px 0 0;border-left:0}
-  .bilgi div{padding:16px}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .gor{opacity:1;transform:none}
-}
+@media (max-width:560px){.hizmetler{grid-template-columns:1fr}.kart.ana .mini{grid-template-columns:1fr 1fr}.kart.ana .mini div:nth-child(3){display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .gor{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<div class="isik" id="isik"></div>
 
-<header id="ust">
-  <div class="kap ust">
-    <a href="#" class="marka"><i>e</i>Emircan Karaman</a>
-    <nav>
-      <a href="#isler">İşler</a>
-      <a href="#yontem">Yöntem</a>
-      <a href="#hakkimda">Hakkımda</a>
-      <button class="tema" id="tema" aria-label="Açık / koyu tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
-      <a href="#iletisim" class="btn btn-ana">İletişim</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-<section class="hero">
-  <div class="kap hero-ic">
+<div class="duzen">
+  <header class="sol">
     <div>
-      <div class="durum gor"><i></i>Yeni projelere ve iş tekliflerine açığım</div>
-      <h1 class="gor">İşletmeler için hızlı, modern ve <span class="serif">kendine özgü</span> web siteleri.</h1>
-      <p class="gor">Ben Emircan, İstanbul'da frontend geliştiriciyim. Spor salonu, kafe, kuaför ve dükkânların internette güçlü görünmesini; müşterilerinin onları kolayca bulup WhatsApp'tan ulaşmasını sağlıyorum.</p>
-      <div class="hero-btn gor">
-        <a href="#isler" class="btn btn-ana">İşlerime göz atın</a>
-        <a href="#iletisim" class="btn">Teklif isteyin</a>
+      <div class="kimlik"><img src="gorseller/emircan.jpg" alt="Emircan Karaman"><span class="durum"><i></i>Projelere açık</span></div>
+      <h1>Emircan Karaman</h1>
+      <h2>Frontend Geliştirici</h2>
+      <p class="ozet">İşletmeler için hızlı, mobil uyumlu ve kendine özgü web siteleri geliştiriyorum.</p>
+      <nav><ul class="menu">
+        <li><a href="#hakkimda" class="aktif">Hakkımda</a></li>
+        <li><a href="#projeler">Projeler</a></li>
+        <li><a href="#neler">Neler yapıyorum</a></li>
+        <li><a href="#surec">Süreç</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul></nav>
+    </div>
+    <div class="sol-alt">
+      <a href="https://github.com/emircankaraman" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+      <a href="https://www.linkedin.com/in/emircankaraman/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      <a href="mailto:emirrcankaraman@gmail.com" aria-label="E-posta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <button id="tema" aria-label="Açık / koyu tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <span class="saat mono">İstanbul <span id="saat">--:--</span></span>
+    </div>
+  </header>
+
+  <main class="sag">
+    <section id="hakkimda" class="bolum">
+      <div class="bolum-bas">Hakkımda</div>
+      <p class="gor">İstanbul'da yaşayan bir <b>frontend geliştiriciyim</b>. Temiz arayüzler, akıcı animasyonlar ve her ekranda düzgün görünen sayfalar üzerine çalışıyorum; tasarımla kodun buluştuğu yer en sevdiğim alan.</p>
+      <p class="gor">Çevremdeki pek çok spor salonunun, kafenin ve kuaförün güçlü bir Instagram hesabı olduğu hâlde bir web sitesi olmadığını fark ettim. Bu ihtiyaç için <b>tek bir ayar dosyasıyla özelleşen bir site motoru</b> geliştirdim. Böylece her işletmeye birkaç gün içinde, uygun maliyetle ve kendine özgü bir site hazırlayabiliyorum.</p>
+      <p class="gor">Kullandığım başlıca teknolojiler <b lang="en">HTML, CSS, JavaScript, React, React Native</b> ve <b lang="en">Python</b>. Serbest projelerin yanı sıra ekip içi frontend pozisyonlarına da açığım — <a href="#iletisim">bana yazabilirsiniz</a>.</p>
+    </section>
+
+    <section id="projeler" class="bolum">
+      <div class="bolum-bas">Projeler</div>
+      <div class="liste">
+        <a class="kart ana gor" href="https://github.com/emircankaraman/isletme-site-sablonu" target="_blank" rel="noopener">
+          <div class="gorsel"><img src="gorseller/usta-makas.jpg" alt="İşletme Site Şablonu örneği" loading="lazy"></div>
+          <div>
+            <div class="ust-yazi">Öne çıkan · Kendi projem</div>
+            <h3>İşletme Site Şablonu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></h3>
+            <p>Küçük işletmeler için tek motorla sınırsız site üreten statik site üreticisi. 3 düzen, 8 tema, 20'den fazla bölüm; canlı açık/kapalı saati, WhatsApp randevu kutusu ve Google için yapılandırılmış veri.</p>
+            <ul class="etiketler" lang="en"><li>Python</li><li>JavaScript</li><li>CSS</li><li>HTML</li></ul>
+          </div>
+        </a>
+        <a class="kart gor" href="https://emircankaraman.github.io/isletme-site-sablonu/papatya-cicek/" target="_blank" rel="noopener">
+          <div class="gorsel"><img src="gorseller/papatya-cicek.jpg" alt="" loading="lazy"></div>
+          <div><div class="ust-yazi">Çiçekçi · Portfolyo düzeni</div><h3>Papatya Çiçek Atölyesi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><p>Kemer formlu görseller, kategoriye göre filtrelenen galeri ve sipariş kutusu.</p><ul class="etiketler"><li>Filtreli galeri</li><li>Sipariş</li></ul></div>
+        </a>
+        <a class="kart gor" href="https://emircankaraman.github.io/isletme-site-sablonu/mola-kahve/" target="_blank" rel="noopener">
+          <div class="gorsel"><img src="gorseller/mola-kahve.jpg" alt="" loading="lazy"></div>
+          <div><div class="ust-yazi">Kafe · Klasik düzen</div><h3>Mola Kahve Evi <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><p>Kategorili, fiyatlı menü ve WhatsApp üzerinden masa rezervasyonu.</p><ul class="etiketler"><li>Menü</li><li>Rezervasyon</li></ul></div>
+        </a>
+        <a class="kart gor" href="https://emircankaraman.github.io/isletme-site-sablonu/nefes-yoga/" target="_blank" rel="noopener">
+          <div class="gorsel"><img src="gorseller/nefes-yoga.jpg" alt="" loading="lazy"></div>
+          <div><div class="ust-yazi">Yoga stüdyosu · Klasik düzen</div><h3>Nefes Yoga <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg></h3><p>Haftalık ders programı, paketler ve deneme dersi randevusu.</p><ul class="etiketler"><li>Ders programı</li><li>Paketler</li></ul></div>
+        </a>
       </div>
-    </div>
-    <div class="profil gor"><img src="gorseller/emircan.jpg" alt="Emircan Karaman"><div><b>Emircan Karaman</b><span>Frontend Geliştirici</span></div></div>
-  </div>
-</section>
+      <a class="tum-link gor" href="https://emircankaraman.github.io/isletme-site-sablonu/" target="_blank" rel="noopener">Tüm örnekleri gör <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 
-<div class="kap">
-  <div class="bilgi gor">
-    <div><small>Konum</small><strong>İstanbul · <span id="saat">--:--</span></strong></div>
-    <div><small>Odak</small><strong>İşletme web siteleri</strong></div>
-    <div><small>Teknolojiler</small><strong lang="en">HTML, CSS, JS, React</strong></div>
-    <div><small>Dönüş süresi</small><strong>Genellikle aynı gün</strong></div>
-  </div>
-</div>
-
-<section id="isler">
-  <div class="kap">
-    <div class="bas gor">
-      <div><div class="etiket"><b>01</b> Seçilmiş işler</div><h2>Her işletmeye <span class="serif">kendi karakteri</span></h2></div>
-      <p>Aynı sağlam altyapı, ama her sitede farklı bir düzen, renk ve tipografi. Görsellere tıklayıp canlı olarak inceleyebilirsiniz.</p>
-    </div>
-    <div class="isler">
-      <a class="is gor" href="https://emircankaraman.github.io/isletme-site-sablonu/usta-makas/" target="_blank" rel="noopener"><div class="is-gorsel"><img src="gorseller/usta-makas.jpg" alt="Usta Makas berber sitesi" loading="lazy"></div><div class="is-bilgi"><div><h3>Usta Makas</h3><span>Berber · Vitrin düzeni</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div></a>
-      <a class="is gor" href="https://emircankaraman.github.io/isletme-site-sablonu/papatya-cicek/" target="_blank" rel="noopener"><div class="is-gorsel"><img src="gorseller/papatya-cicek.jpg" alt="Papatya Çiçek Atölyesi sitesi" loading="lazy"></div><div class="is-bilgi"><div><h3>Papatya Çiçek Atölyesi</h3><span>Çiçekçi · Portfolyo düzeni</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div></a>
-    </div>
-    <div class="alt-isler">
-      <a class="is gor" href="https://emircankaraman.github.io/isletme-site-sablonu/mola-kahve/" target="_blank" rel="noopener"><div class="is-gorsel"><img src="gorseller/mola-kahve.jpg" alt="Mola Kahve Evi sitesi" loading="lazy"></div><div class="is-bilgi"><div><h3>Mola Kahve Evi</h3><span>Kafe</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div></a>
-      <a class="is gor" href="https://emircankaraman.github.io/isletme-site-sablonu/tatli-kose/" target="_blank" rel="noopener"><div class="is-gorsel"><img src="gorseller/tatli-kose.jpg" alt="Tatlı Köşe pastane sitesi" loading="lazy"></div><div class="is-bilgi"><div><h3>Tatlı Köşe</h3><span>Pastane</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div></a>
-      <a class="is gor" href="https://emircankaraman.github.io/isletme-site-sablonu/nefes-yoga/" target="_blank" rel="noopener"><div class="is-gorsel"><img src="gorseller/nefes-yoga.jpg" alt="Nefes Yoga sitesi" loading="lazy"></div><div class="is-bilgi"><div><h3>Nefes Yoga</h3><span>Yoga stüdyosu</span></div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div></a>
-    </div>
-    <p class="isler-not gor">Ayrıca: <a href="https://emircankaraman.github.io/isletme-site-sablonu/demir-gym/" target="_blank" rel="noopener">Demir Gym</a>, <a href="https://emircankaraman.github.io/isletme-site-sablonu/lotus-pilates/" target="_blank" rel="noopener">Lotus Pilates</a> · Örnekler hayalî işletmeler için hazırlanmıştır · <a href="https://github.com/emircankaraman/isletme-site-sablonu" target="_blank" rel="noopener">Kaynak kodu</a></p>
-  </div>
-</section>
-
-<section id="yontem" style="padding-top:0">
-  <div class="kap">
-    <div class="bas gor">
-      <div><div class="etiket"><b>02</b> Yöntem</div><h2>Bir ayar dosyası, <span class="serif">bir site</span></h2></div>
-      <p>Kendi geliştirdiğim site motoru sayesinde her işletmeye özel bir siteyi hızlı ve uygun maliyetle hazırlayabiliyorum.</p>
-    </div>
-    <div class="yontem gor">
-      <div class="kod" id="kod">
-        <div class="kod-ust"><i></i><i></i><i></i><span>ayarlar.json</span></div>
+      <div class="kod gor" id="kod">
+        <div class="kod-ust"><span>musteriler/mola-kahve/ayarlar.json</span><span>Bir dosya → bir site</span></div>
         <pre id="kod-metin"></pre>
         <div class="kod-alt">$ python3 olustur.py mola-kahve → <b id="kod-sonuc">…</b></div>
       </div>
-      <div class="ozellikler">
-        <div class="ozellik"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span><h3>Her ekranda kusursuz</h3><p>Ziyaretçilerin çoğu telefondan gelir; site her cihazda hızlı açılır.</p></div>
-        <div class="ozellik"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 21l2.1-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg></span><h3>WhatsApp'tan randevu</h3><p>Müşteri hizmeti ve günü seçer, mesaj hazır hâlde size ulaşır.</p></div>
-        <div class="ozellik"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Canlı açık / kapalı bilgisi</h3><p>Çalışma saatlerinize göre anlık olarak güncellenir.</p></div>
-        <div class="ozellik"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><h3>Google'da görünürlük</h3><p>Adres, saat ve iletişim bilgileri arama motorlarının anlayacağı yapıda.</p></div>
-        <div class="ozellik"><span class="ik"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><h3>Kolay güncelleme</h3><p>Fiyat, kampanya ya da saat değişikliği aynı gün yapılır.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section style="padding-top:0">
-  <div class="kap">
-    <div class="bas gor">
-      <div><div class="etiket"><b>03</b> Süreç</div><h2>Nasıl <span class="serif">çalışıyoruz</span></h2></div>
-    </div>
-    <div class="surec gor">
-      <div class="adim"><span class="no">01</span><h3>Tanışma</h3><p>İşletmenizi ve sitede ne görmek istediğinizi konuşuyoruz.</p><small>Ücretsiz</small></div>
-      <div class="adim"><span class="no">02</span><h3>Taslak</h3><p>Mevcut fotoğraf ve bilgilerinizle size özel bir önizleme hazırlıyorum.</p><small>1–3 gün</small></div>
-      <div class="adim"><span class="no">03</span><h3>Düzeltmeler</h3><p>Detayları birlikte netleştiriyoruz; onayınız olmadan yayına çıkmaz.</p><small>Birlikte</small></div>
-      <div class="adim"><span class="no">04</span><h3>Yayın ve destek</h3><p>Alan adınıza bağlıyor, Google'a tanıtıyorum. Sonrasında da yanınızdayım.</p><small>Sürekli</small></div>
-    </div>
-  </div>
-</section>
-
-<section id="hakkimda" style="padding-top:0">
-  <div class="kap hakkimda">
-    <div class="foto gor"><img src="gorseller/emircan.jpg" alt="Emircan Karaman" loading="lazy"></div>
-    <div class="gor">
-      <div class="etiket"><b>04</b> Hakkımda</div>
-      <h2>Merhaba, <span class="serif">ben Emircan</span></h2>
-      <p class="giris">İstanbul'da yaşayan bir frontend geliştiriciyim. Temiz arayüzler, akıcı animasyonlar ve her ekranda düzgün görünen sayfalar üzerine çalışıyorum.</p>
-      <p>Çevremdeki pek çok işletmenin güçlü bir Instagram hesabı olduğu hâlde web sitesi olmadığını fark ettim. Bu ihtiyaç için tek bir ayar dosyasıyla özelleşen bir site motoru geliştirdim; böylece her işletmeye hızlı, uygun maliyetli ve kendine özgü bir site sunabiliyorum.</p>
-      <p>Serbest projelerin yanı sıra ekip içi frontend pozisyonlarına da açığım.</p>
-      <div class="teknik" lang="en"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>React Native</span><span>Python</span></div>
-      <div class="baglantilar">
-        <a class="btn" href="https://github.com/emircankaraman" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/emircankaraman/" target="_blank" rel="noopener">LinkedIn</a>
+    <section id="neler" class="bolum">
+      <div class="bolum-bas">Neler yapıyorum</div>
+      <p class="gor">Bir işletme sitesinin güzel görünmesi yetmez; müşteri getirmesi gerekir. Hazırladığım her sitede şunlar standart olarak gelir:</p>
+      <div class="hizmetler gor">
+        <div class="hizmet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg><h3>Her ekranda kusursuz</h3><p>Telefon, tablet ve bilgisayarda hızlı açılır.</p></div>
+        <div class="hizmet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.4L3 21l2.1-5.3A8.4 8.4 0 1 1 21 11.5z"/></svg><h3>WhatsApp'tan randevu</h3><p>Hizmet ve gün seçilir, mesaj hazır gelir.</p></div>
+        <div class="hizmet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><h3>Canlı açık / kapalı</h3><p>Çalışma saatlerine göre anlık güncellenir.</p></div>
+        <div class="hizmet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><h3>Google'da görünürlük</h3><p>Arama motorlarının anladığı işletme verisi.</p></div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="iletisim" style="padding-top:0">
-  <div class="kap">
-    <div class="iletisim gor">
-      <div>
-        <div class="etiket"><b>05</b> İletişim</div>
-        <h2>Birlikte <span class="serif">çalışalım</span></h2>
-        <p>İşletmeniz için bir web sitesi ya da ekibiniz için bir frontend geliştirici arıyorsanız kısa bir mesaj yeterli.</p>
-      </div>
-      <div class="kanallar">
-        <a href="mailto:emirrcankaraman@gmail.com?subject=Web%20sitesi%20hakk%C4%B1nda"><small>E-posta</small><strong>emirrcankaraman@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></strong></a>
-        <a href="https://www.linkedin.com/in/emircankaraman/" target="_blank" rel="noopener"><small lang="en">LinkedIn</small><strong>/in/emircankaraman <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></strong></a>
-        <a href="https://github.com/emircankaraman" target="_blank" rel="noopener"><small lang="en">GitHub</small><strong>@emircankaraman <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></strong></a>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
+    <section id="surec" class="bolum">
+      <div class="bolum-bas">Süreç</div>
+      <p class="gor">Basit, şeffaf ve onayınız olmadan hiçbir şeyin yayına çıkmadığı bir süreç.</p>
+      <ol class="surec">
+        <li class="gor"><div class="zaman">Ücretsiz</div><h3>Tanışma</h3><p>İşletmenizi ve sitede ne görmek istediğinizi konuşuyoruz.</p></li>
+        <li class="gor"><div class="zaman">1–3 gün</div><h3>Taslak</h3><p>Instagram'ınızdaki fotoğraf ve bilgilerle size özel bir önizleme hazırlıyorum.</p></li>
+        <li class="gor"><div class="zaman">Birlikte</div><h3>Düzeltmeler</h3><p>Her detayı birlikte netleştiriyoruz.</p></li>
+        <li class="gor"><div class="zaman">Sürekli</div><h3>Yayın ve destek</h3><p>Alan adınıza bağlıyor, Google'a tanıtıyorum; değişiklikleri aynı gün yapıyorum.</p></li>
+      </ol>
+    </section>
 
-<footer><div class="kap"><span>© <span id="yil">2026</span> Emircan Karaman</span><a href="#">Başa dön ↑</a></div></footer>
+    <section id="iletisim" class="bolum" style="margin-bottom:56px">
+      <div class="bolum-bas">İletişim</div>
+      <div class="iletisim-kutu gor">
+        <h3>Birlikte çalışalım</h3>
+        <p>İşletmeniz için bir web sitesi ya da ekibiniz için bir frontend geliştirici arıyorsanız kısa bir mesaj yeterli. Genellikle aynı gün dönüyorum.</p>
+        <div class="btnlar">
+          <a class="btn btn-ana" href="mailto:emirrcankaraman@gmail.com?subject=Web%20sitesi%20hakk%C4%B1nda"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>E-posta gönder</a>
+          <a class="btn" href="https://www.linkedin.com/in/emircankaraman/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <p class="son">© <span id="yil">2026</span> Emircan Karaman. Bu site şablon kullanılmadan, elle kodlandı. <a href="https://github.com/emircankaraman" target="_blank" rel="noopener">GitHub</a></p>
+  </main>
+</div>
 
 <script src="lenis.min.js"></script>
 <script>
@@ -318,6 +259,10 @@ footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   function saatYaz(){ try { saat.textContent = new Intl.DateTimeFormat('tr-TR', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Istanbul' }).format(new Date()); } catch (e) {} }
   saatYaz(); setInterval(saatYaz, 15000);
 
+  // imleci takip eden hafif ışık
+  var isik = document.getElementById('isik');
+  if (!az && matchMedia('(hover:hover)').matches) addEventListener('mousemove', function(e){ isik.style.setProperty('--x', e.clientX + 'px'); isik.style.setProperty('--y', e.clientY + 'px'); }, { passive: true });
+
   var lenis = null;
   if (!az && window.Lenis) {
     lenis = new Lenis({ duration: 1.1, easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
@@ -325,23 +270,28 @@ footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   }
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click', function(e){
-      var id = a.getAttribute('href'), h = id === '#' ? null : document.querySelector(id);
+      var h = document.querySelector(a.getAttribute('href')); if (!h) return;
       e.preventDefault();
-      if (lenis) lenis.scrollTo(h || 0, { offset: -72 }); else (h ? h.scrollIntoView() : scrollTo(0, 0));
+      if (lenis) lenis.scrollTo(h, { offset: -40 }); else h.scrollIntoView();
     });
   });
 
-  var ust = document.getElementById('ust');
-  addEventListener('scroll', function(){ ust.classList.toggle('dolu', scrollY > 8); }, { passive: true });
+  // aktif menü
+  var linkler = {};
+  document.querySelectorAll('.menu a').forEach(function(a){ linkler[a.getAttribute('href').slice(1)] = a; });
+  var bolumGozcu = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      Object.keys(linkler).forEach(function(k){ linkler[k].classList.toggle('aktif', k === e.target.id); });
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('.bolum').forEach(function(b){ bolumGozcu.observe(b); });
 
+  // görünme
   var gozcu = new IntersectionObserver(function(es){
     es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('gorundu'); gozcu.unobserve(e.target); } });
   }, { rootMargin: '0px 0px -6% 0px' });
-  document.querySelectorAll('.gor').forEach(function(el, i){
-    var k = el.parentNode.children, sira = Array.prototype.indexOf.call(k, el);
-    if (el.parentNode.classList.contains('isler') || el.parentNode.classList.contains('alt-isler') || el.parentNode.classList.contains('hero-btn') || el.closest('.hero')) el.style.transitionDelay = (sira % 4) * 0.08 + 's';
-    gozcu.observe(el);
-  });
+  document.querySelectorAll('.gor').forEach(function(el){ gozcu.observe(el); });
 
   // ayarlar.json canlı yazılsın
   var tam = [
@@ -370,8 +320,8 @@ footer .kap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   new IntersectionObserver(function(es, o){ if (es[0].isIntersecting) { o.disconnect(); yaz(); } }, { threshold: .4 }).observe(document.getElementById('kod'));
 
   document.getElementById('tema').addEventListener('click', function(){
-    var r = document.documentElement, koyu = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    r.dataset.theme = koyu ? 'light' : 'dark';
+    var r = document.documentElement, acik = r.dataset.theme ? r.dataset.theme === 'light' : matchMedia('(prefers-color-scheme: light)').matches;
+    r.dataset.theme = acik ? 'dark' : 'light';
     try { localStorage.setItem('tema', r.dataset.theme); } catch (e) {}
   });
 })();
